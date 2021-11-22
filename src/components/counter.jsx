@@ -1,14 +1,21 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+
+import './counter.css';
 
 
 const Counter = () => {
-    const [count,setCount] = useState(0)
-    const [isActive, setIsActive] = useState('');
-    // const [isBackground, changeBackground] = useState(true);
+    const [count, setCount] = useState(0);
+    const [label, setLabel] = useState('');
+    const [backgroundClassList, setBackgroundClassList] = useState('');
 
-    const toggle = () => {
-        setIsActive(!isActive);
-    }
+
+    useEffect(
+        () => {
+            formatLabel();
+            changeColor();
+        },
+        [count],
+      );
 
     function increment() {
         setCount(count + 1)
@@ -19,33 +26,48 @@ const Counter = () => {
     }
 
     function decrement() {
-        setCount(Math.max(0, count - 1))
+        if (count === 0) {
+            return;
+        }
 
+        setCount(count - 1)
+    }
+
+    function formatLabel() {
+        if (count === 0) {
+            setLabel('');
+            return;
+        }
+
+        const result = count % 2 === 0 ? 'Четное' : 'Нечетное';
+        setLabel(result);
     }
 
 
-    // function changeColor() {
-    //     if (count % 2 === 0)
-    //         changeBackground(isBackground == true);
-    //     else {
-    //         changeBackground(isBackground == false);
-    //     }
-    // }
+    function changeColor() {
+        if (count === 0) {
+            setBackgroundClassList('');
+            return;
+        }
+
+        if (count % 2 === 0)
+            setBackgroundClassList('counter_yellow');
+        else {
+            setBackgroundClassList('counter_blue');
+        }
+    }
 
 
 
 
     return(
-        <div className="App">
-            {/*<div onClick={changeColor} style={{backgroundColor: isBackground ? 'red' : 'blue',}}>*/}
-
-                <h1>{count}</h1>
-                <h2 onClick={toggle}>{count === 0 ? '' : count % 2 === 0 ? 'Четное' :'Нечетное'}</h2>
-                <button className='rm' onClick={increment}>+</button>
-                <button onClick={reset}>reset</button>
-                <button onClick={decrement}>-</button>
-            </div>
-        // </div>
+        <div className={backgroundClassList}>
+            <h1>{count}</h1>
+            <h2>{label}</h2>
+            <button onClick={decrement}>-</button>
+            <button onClick={reset}>reset</button>
+            <button className='rm' onClick={increment}>+</button>
+        </div>
     )
 };
 
