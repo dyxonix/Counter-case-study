@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './counter.css';
 
@@ -9,13 +9,14 @@ const Counter = () => {
     const [backgroundClassList, setBackgroundClassList] = useState('');
 
 
+
     useEffect(
         () => {
             formatLabel();
             changeColor();
         },
         [count],
-      );
+    );
 
     function increment() {
         setCount(count + 1)
@@ -39,7 +40,7 @@ const Counter = () => {
             return;
         }
 
-        const result = count % 2 === 0 ? 'Четное' : 'Нечетное';
+        const result = count % 2 === 0 ? 'Четное число' : 'Нечетное число';
         setLabel(result);
     }
 
@@ -60,13 +61,15 @@ const Counter = () => {
 
 
 
-    return(
+    return (
         <div className={backgroundClassList}>
-            <h1>{count}</h1>
-            <h2>{label}</h2>
-            <button onClick={decrement}>-</button>
-            <button onClick={reset}>reset</button>
-            <button className='rm' onClick={increment}>+</button>
+            <div className='content'>
+                <h1>{count}</h1>
+                <h2>{label}</h2>
+                <button onClick={decrement}>-</button>
+                <button onClick={reset}>reset</button>
+                <button onClick={increment}>+</button>
+            </div>
         </div>
     )
 };
