@@ -1,15 +1,26 @@
-.content{
-    flex-direction: column;
-    position: relative;
-    text-align: center;
-  
-    font-size: 25px;
-    color: #383d41;
-
+.frame{
+    margin: 160px auto;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 12px 0px 100px -4px rgba(142, 144, 144, 0.34);
+    border-radius: 10px;
 }
 
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    color: #51565a;
+    font-family: 'Cantarell',sans-serif;
+    padding: 20px;
+}
+
+
 .counter_yellow{
-    background-color: rgb(255, 255, 107);
+    background-color: #f7fa53;
+    transition-duration: 0.8s;
     position: absolute;
     top: 0;
     left: 0;
@@ -19,6 +30,7 @@
 
 .counter_blue {
     background-color: rgb(0, 204, 255);
+    transition-duration: 0.8s;
     position: absolute;
     top: 0;
     left: 0;
@@ -26,3 +38,11 @@
     height: 100%;
 }
 
+.buttons{
+    padding: 15px;
+}
+
+
+.label{
+    height: 70px;
+}

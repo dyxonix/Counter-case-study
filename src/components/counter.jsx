@@ -63,12 +63,16 @@ const Counter = () => {
 
     return (
         <div className={backgroundClassList}>
-            <div className='content'>
-                <h1>{count}</h1>
-                <h2>{label}</h2>
-                <button onClick={decrement}>-</button>
-                <button onClick={reset}>reset</button>
-                <button onClick={increment}>+</button>
+            <div className='frame'>
+                <div className='content'>
+                    <h1>{count}</h1>
+                    <h2 className='label'>{label}</h2>
+                    <div className='buttons'>
+                        <button onClick={decrement}>-</button>
+                        <button onClick={reset}>reset</button>
+                        <button onClick={increment}>+</button>
+                    </div>
+                </div>
             </div>
         </div>
     )

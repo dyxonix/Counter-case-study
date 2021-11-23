@@ -7,25 +7,30 @@ body,html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h2{
+  margin: 0;
+}
+
 
 button{
-  color: #2a272e;
-  margin: 10px;
-  font-size: 20px;
-  padding: 10px 20px;
-  background: #ffffff;
+  color: rgb(117, 117, 117);
+  border: none;
+  cursor: pointer;
+  margin: 15px;
+  font-size: 23px;
+  padding: 10px 25px;
   border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 18px -4px rgba(7, 7, 7, 0.08);
 }
 
-.background-red {
-  background-color: red;
+button:hover {
+  background-color: rgb(214, 214, 214);
 }
 
-.background-blue {
-  background-color: blue;
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
